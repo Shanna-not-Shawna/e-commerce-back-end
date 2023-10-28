@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
         id: req.params.id,
       },
     });
-    if (!category[0]) {
+    if (!categoryData[0]) {
       res.status(404).json({ message: 'No category with this id'});
       return;
     }
@@ -64,8 +64,8 @@ router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
     if (!categoryData) {
       res.status(404).json({ message: 'no category with this id'});
